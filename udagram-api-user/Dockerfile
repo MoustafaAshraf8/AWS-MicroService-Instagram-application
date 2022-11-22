@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 #ensure package.json and package-lock.json are both copied
 COPY package*.json ./
 
-RUN npm.ci
+RUN npm install
 #bundle app source
 COPY . .
 EXPOSE 8000

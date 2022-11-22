@@ -1,11 +1,11 @@
 #Build
 FROM beevelop/ionic:latest AS ionic
 #create app directory
-WORKDIR usr/src/app
+WORKDIR /usr/src/app
 #install app dependencies
 #ensure that both package.json and package-lock.json are copied
 COPY package*.json ./
-RUN  npm ci
+RUN  npm install --force
 #bundle app source
 COPY . .
 RUN ionic build
