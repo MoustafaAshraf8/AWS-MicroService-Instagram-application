@@ -1,0 +1,14 @@
+# Create env-configmap.yaml, and save all your configuration values
+#(non-confidential environments variables) in that file.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-config
+data:
+  POSTGRES_HOST: postgres.c5wpoymggfyb.us-east-1.rds.amazonaws.com
+  POSTGRES_DB: postgres
+  AWS_BUCKET: rn:aws:s3:::bucket-2110853-0
+  AWS_REGION: us-east-2
+  JWT_SECRET: testing
+  AWS_PROFILE: default
+  URL: http://localhost:8100
