@@ -16,21 +16,27 @@ specs:
     spec:
       containers:
         name: api-user
-        image: moustafaashraf/udagram-api-user
+        image: moustafaashraf/udagram-api-user:v1a
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: "64Mi"
+            cpu: "250m"
           limits:
             memory: "1024Mi"
             cpu: "500m"
+        ports:
+          containerPort: 8080
         envForm:
           secretRef:
             name: env-secret
           configMapRef:
             name: env-config
-          secretRef:
-            name: aws-secret
-        ports:
-          containerPort: 8080
+        volumeMounts:
+          - name: aws-secret
+            mountPath: "/root/.aws/"
+            readOnly: true
+      volumes:
+        - name: aws-secret
+          secret:
+            secretName: aws-secret
