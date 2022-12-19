@@ -4,10 +4,10 @@ metadata:
   name: api-user
   labels:
     app: api-user
-specs:
+spec:
   replicas: 1
   selector:
-    matchlabels:
+    matchLabels:
       app: api-user
   template:
     metadata:
@@ -15,27 +15,27 @@ specs:
         app: api-user
     spec:
       containers:
-        name: api-user
-        image: moustafaashraf/udagram-api-user:v1a
-        imagePullPolicy: Always
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "1024Mi"
-            cpu: "500m"
-        ports:
-          containerPort: 8080
-        envForm:
-          secretRef:
-            name: env-secret
-          configMapRef:
-            name: env-config
-        volumeMounts:
-          - name: aws-secret
-            mountPath: "/root/.aws/"
-            readOnly: true
+        - name: api-user
+          image: moustafaashraf/udagram-api-user:v1a
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: env-config
+            - secretRef:
+                name: env-secret
+          volumeMounts:
+            - name: aws-secret
+              mountPath: "/root/.aws/"
+              readOnly: true
       volumes:
         - name: aws-secret
           secret:

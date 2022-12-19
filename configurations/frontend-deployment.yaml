@@ -4,10 +4,10 @@ metadata:
   name: frontend
   labels:
     app: frontend
-specs:
+spec:
   replicas: 1
   selector:
-    matchlabels:
+    matchLabels:
       app: frontend
   template:
     metadata:
@@ -15,6 +15,6 @@ specs:
         app: frontend
     spec:
       containers:
-        name: frontend
-        image: moustafaashraf/udagram-frontend:local
-        imagePullPolicy: Always
+        - image: moustafaashraf/udagram-frontend:local
+          name: frontend
+          imagePullPolicy: Always
