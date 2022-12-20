@@ -15,7 +15,7 @@ spec:
         app: frontend
     spec:
       containers:
-        - image: moustafaashraf/udagram-frontend:local
+        - image: moustafaashraf/udagram-frontend:v2b
           name: frontend
           imagePullPolicy: Always
           ports:
