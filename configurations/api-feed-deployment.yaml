@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
         - name: api-feed
-          image: moustafaashraf/udagram-api-feed:v1a
+          image: moustafaashraf/udagram-api-feed:v1b
           imagePullPolicy: Always
           resources:
             requests:
-              memory: "128Mi"
+              memory: "64Mi"
               cpu: "250m"
             limits:
               memory: "1024Mi"

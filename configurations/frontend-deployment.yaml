@@ -18,3 +18,5 @@ spec:
         - image: moustafaashraf/udagram-frontend:local
           name: frontend
           imagePullPolicy: Always
+          ports:
+            - containerPort: 80
