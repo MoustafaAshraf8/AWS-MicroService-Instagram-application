@@ -1,0 +1,21 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: docker --version # Print docker version for logging
+      - run: docker build -t reverseproxy:v1b ./udagram-reverseproxy
+      - run: docker build -t udagram-api-feed:v1b ./udagram-api-feed
+      - run: docker build -t udagram-api-user:v1b ./udagram-api-user
+      - run: docker build -t udagram-frontend:v3b ./udagram-frontend
+      - run: docker tag reverseproxy moustafaashraf/reverseproxy:v1a
+      - run: docker tag udagram-api-feed moustafaashraf/udagram-api-feed:v1b
+      - run: docker tag udagram-api-user moustafaashraf/udagram-api-user:v1a
+      - run: docker tag udagram-frontend moustafaashraf/udagram-frontend:v3b
+      - run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - run: docker push moustafaashraf/reverseproxy:v1a
+      - run: docker push moustafaashraf/udagram-api-feed:v1b
+      - run: docker push moustafaashraf/udagram-api-user:v1a
+      - run: docker push moustafaashraf/udagram-frontend:v3b

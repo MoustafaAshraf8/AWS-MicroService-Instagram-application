@@ -18,13 +18,13 @@ spec:
         - name: api-feed
           image: moustafaashraf/udagram-api-feed:v1b
           imagePullPolicy: Always
-          resources:
-            requests:
-              memory: "128Mi"
-              cpu: "300m"
-            limits:
-              memory: "1024Mi"
-              cpu: "500m"
+          # resources:
+          #   requests:
+          #     memory: "128Mi"
+          #     cpu: "300m"
+          #   limits:
+          #     memory: "1024Mi"
+          #     cpu: "500m"
           ports:
             - containerPort: 8080
           envFrom:
