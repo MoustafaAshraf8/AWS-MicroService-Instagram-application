@@ -4,7 +4,7 @@ metadata:
   name: api-user
   labels:
     app: api-user
-specs:
+spec:
   ports:
     - name: "8080"
       port: 8080
